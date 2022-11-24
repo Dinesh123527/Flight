@@ -1,0 +1,24 @@
+<div class="basic-container">
+<mat-radio-group aria-label="Select an option">
+  <mat-radio-button (change)="radioChange('past')" value="1">Past Trip</mat-radio-button>
+  <mat-radio-button (change)="radioChange('current')" value="2" checked>Current Trip</mat-radio-button>
+  <mat-radio-button (change)="radioChange('future')" value="3" >Future Trip</mat-radio-button>
+</mat-radio-group>
+</div>
+
+<div class="container">
+  <mat-card class="list-card" *ngFor="let schedule of dataSource">
+    <mat-card-header>
+      <mat-card-title>Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Flight Number: {{schedule.flightNumber}}<br>
+      Departure City: {{schedule.departureCity}}<br>
+      Arrival City: {{schedule.arrivalCity}}<br>
+      Departure Date: <input type="date" (change)="onDateselect(schedule.departureDate)" [(ngModel)]="schedule.departureDate"><br>
+      Arrival Date:   <input type="date" (change)="onDateselect($event)" [(ngModel)]="schedule.departureDate"><br>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
